@@ -1,0 +1,13 @@
+---
+# file: roles/pagerduty-sonos-alarm/tasks/main.yml
+
+- template:
+    src: pagerdutysonosalarm.service.j2
+    dest: /etc/systemd/system/pagerdutysonosalarm.service
+  notify:
+    - restart pagerdutysonosalarm.service
+
+- file:
+    src: /etc/systemd/system/pagerdutysonosalarm.service
+    dest: /etc/systemd/system/multi-user.target.wants/pagerdutysonosalarm.service
+    state: link
