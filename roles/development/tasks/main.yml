@@ -1,0 +1,10 @@
+---
+# file: roles/development/tasks/main.yml
+
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - git
+    - vim

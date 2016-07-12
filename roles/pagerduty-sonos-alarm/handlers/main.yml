@@ -1,0 +1,9 @@
+---
+# file: roles/pagerduty-sonos-alarm/handlers/main.yml
+
+- name: restart pagerdutysonosalarm.service
+  systemd:
+    name: pagerdutysonosalarm.service
+    daemon_reload: yes
+    state: restarted
+    enabled: yes

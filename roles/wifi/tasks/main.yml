@@ -1,0 +1,10 @@
+---
+# file: roles/wifi/tasks/main.yml
+
+- template:
+    src: wpa_supplicant.conf.j2
+    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+
+- copy:
+    src: 8192cu.conf
+    dest: /etc/modprobe.d/8192cu.conf
