@@ -1,0 +1,12 @@
+---
+# file: roles/docker/tasks/main.yml
+
+- name: Install docker
+  apt:
+    deb: https://downloads.hypriot.com/docker-hypriot_1.10.3-1_armhf.deb
+    state: present
+
+- name: Enable docker to be started on bootup
+  systemd:
+    name: docker.service
+    enabled: yes

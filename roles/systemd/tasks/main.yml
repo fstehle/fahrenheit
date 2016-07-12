@@ -1,0 +1,8 @@
+---
+# file: roles/systemd/tasks/main.yml
+
+- copy:
+    src: airsonos.service
+    dest: /etc/systemd/system/airsonos.service
+  notify:
+    - restart airsonos.service
