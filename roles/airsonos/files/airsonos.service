@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run --restart=always --net="host" \
+ExecStart=/usr/bin/docker run --net="host" \
                      -p 5000-5050:5000-5050/tcp \
                      --rm --name="airsonos" \
-                     leachbj/airsonos
+                     fstehle/rpi-airsonos:cross_build

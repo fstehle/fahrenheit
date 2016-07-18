@@ -1,5 +1,5 @@
 ---
-# file: roles/systemd/tasks/main.yml
+# file: roles/airsonos/tasks/main.yml
 
 - copy:
     src: airsonos.service
