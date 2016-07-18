@@ -2,7 +2,7 @@
 # file: site.yml
 - hosts: pis
   roles:
-    # - common
-    # - development
-    # - docker
-    - systemd
+    - common
+    - development
+    - docker
+    - airsonos
