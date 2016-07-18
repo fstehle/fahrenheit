@@ -1,5 +1,5 @@
 [pis]
-pi1 ansible_ssh_host=10.0.3.31
+pi2 
 
 [pis:vars]
 ansible_connection=ssh
