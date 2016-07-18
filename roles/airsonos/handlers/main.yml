@@ -1,5 +1,5 @@
 ---
-# file: roles/systemd/handlers/main.yml
+# file: roles/airsonos/handlers/main.yml
 
 - name: restart airsonos.service
   systemd:
