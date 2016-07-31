@@ -1,0 +1,26 @@
+[Unit]
+Description=PagerDutySonosAlarm
+Requires=docker.service
+After=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop %n
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStartPre=/usr/bin/docker pull fstehle/rpi-email-sonos-alarm:latest
+ExecStart=/usr/bin/docker run --rm --name %n \
+                              --net="host" \
+                              -p 9002:80 \
+                              fstehle/rpi-email-sonos-alarm:latest \
+                              -v --debug \
+                              --timezone 'Europe/Berlin' \
+                              --port 9002 \
+                              imap.gmail.com \
+                              '{{ pagerduty_sonos_alarm_imap_user }}' \
+                              '{{ pagerduty_sonos_alarm_imap_pass }}' \
+                              'PagerDuty Alarm'
+ExecStop=/usr/bin/docker stop %n
+
+[Install]
+WantedBy=multi-user.target

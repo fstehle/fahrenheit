@@ -9,3 +9,4 @@
     - development
     - docker
     - airsonos
+    - pagerduty-sonos-alarm
