@@ -1,8 +1,11 @@
 ---
 # file: site.yml
 - hosts: pis
+  vars_files:
+    - secrets.yml
   roles:
     - common
+    - wifi
     - development
     - docker
     - airsonos
